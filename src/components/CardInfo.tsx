@@ -16,7 +16,7 @@ const CardInfo = ({ mainContent, content }: ICardInfo) => {
         <Text fontSize='2xl' fontWeight='bold'>
             { mainContent }
         </Text>
-        <Text fontSize='xl'>
+        <Text fontSize='xl' whiteSpace='pre-line'>
             { content }
         </Text>
     </Box>

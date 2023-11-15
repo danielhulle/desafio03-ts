@@ -39,7 +39,7 @@ const Conta = () => {
   
     return (
         <Center>
-            <SimpleGrid columns={2} spacing={8} paddingTop={16}>
+            <SimpleGrid columns={3} spacing={8} paddingTop={16}>
                 {
                     userData === undefined || userData === null ?
                     (  
@@ -49,8 +49,22 @@ const Conta = () => {
                     ) : 
                     (
                         <>
-                            <CardInfo mainContent={`Bem vinda ${userData?.name}`} content={`${actualData.getDay()} / ${actualData.getMonth()} / ${actualData.getFullYear()} ${actualData.getHours()}:${actualData.getMinutes()}`} />
-                            <CardInfo mainContent='Saldo' content={`R$ ${userData.balance}`}/>
+                            <CardInfo 
+                                mainContent={`Bem vinda, ${userData?.name}`}
+                                content={`
+                                    ${actualData.getDay()} / ${actualData.getMonth()} / ${actualData.getFullYear()} ${actualData.getHours()}:${actualData.getMinutes()}`} />
+                            <CardInfo 
+                                mainContent='Saldo' 
+                                content={`
+                                R$ ${userData.balance}
+                                `}/>
+                            <CardInfo 
+                                mainContent='Dados do usuário' 
+                                content={`
+                                    Nome: ${userData.name}
+                                    Email: ${userData.email}
+                                    Saldo: R$${userData.balance}
+                                `}/>
                         </>
                     )
                 }
