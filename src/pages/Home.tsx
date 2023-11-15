@@ -5,7 +5,7 @@ import { AppContext } from "../components/AppContext";
 import { Card } from "../components/Card";
 import DButton from "../components/DButton";
 import { validateLogin } from "../services/login";
-import { changeLocalStorage } from "../services/storage";
+import { changeLoginStatus, setLocalStorage } from "../services/storage";
 
 const Home = () => {
     const [ email, setEmail ] = useState<string>('')
@@ -20,8 +20,14 @@ const Home = () => {
             return alert('Email ou senha inválidos')
         }
 
+        const loginData = {
+            email,
+            password,
+        }
+
         setIsLoggedIn(true)
-        changeLocalStorage({ login: true })
+        changeLoginStatus({ login: true })
+        setLocalStorage('loginData', JSON.stringify(loginData))
         navigate('/conta/1')
     }
   

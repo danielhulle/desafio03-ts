@@ -1,8 +1,7 @@
 import { createContext, useEffect, useState } from "react"
-import { getAllLocalStorage } from "../services/storage"
+import { getLoginStatus } from "../services/storage"
 
 interface IAppContext {
-    user: string,
     isLoggedIn: boolean,
     setIsLoggedIn: (isLoggedIn: boolean) => void
 }
@@ -12,7 +11,7 @@ export const AppContext = createContext({} as IAppContext)
 export const AppContextProvider = ({ children }: any) => {
     const [ isLoggedIn, setIsLoggedIn ] = useState<boolean>(false)
 
-    const storage = getAllLocalStorage()
+    const storage = getLoginStatus()
 
     useEffect(() => {
       if(storage){
@@ -20,11 +19,9 @@ export const AppContextProvider = ({ children }: any) => {
         setIsLoggedIn(login)
       }
     }, [])
-
-    const user = 'nathally'
   
     return (
-      <AppContext.Provider value={{ user, isLoggedIn, setIsLoggedIn }}>
+      <AppContext.Provider value={{isLoggedIn, setIsLoggedIn }}>
         { children }
       </AppContext.Provider>
     )
