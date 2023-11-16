@@ -9,10 +9,12 @@ export const DButton = ({ onClick }: IDButton) => {
     return(
         <Button
           onClick={onClick}
-          colorScheme="teal"
+          backgroundColor='#2ECC71'
+          border='none'
+          _hover={{ bg: '#27AE60', color: 'white'}}
           size="sm"
           width="100%"
-          marginTop="5px"
+          marginTop="20px"
         >
           Entrar
         </Button>

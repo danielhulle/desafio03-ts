@@ -15,10 +15,10 @@ export const Header  = () => {
   }
 
   return(
-    <Flex backgroundColor='orange' padding='5px'>
+    <Flex backgroundColor='#2C3E50' color='#ECF0F1' padding='10px' minHeight='8vh' alignItems='center'>
       <Box>
         <Center>
-          <Text fontSize='3xl'>Dio Bank</Text>
+          <Text fontSize='3xl' fontWeight='700'>Dio Bank</Text>
         </Center>
       </Box>
       {
@@ -26,6 +26,12 @@ export const Header  = () => {
           <>
             <Spacer />
             <Button
+              padding='5px'
+              width='120px'
+              height='30px'
+              backgroundColor='#2ECC71'
+              color='white'
+              _hover={{ bg: '#27AE60', color: 'white'}}
               onClick={() => logout()}
             >
               Sair
